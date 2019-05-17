@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                   xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+                                   android:layout_height="wrap_content" app:cardElevation="4dp"
+                                   app:cardCornerRadius="2dp"
+                                   android:layout_margin="8dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <ImageView
+                android:layout_width="120dp"
+                tools:srcCompat="@tools:sample/avatars[8]"
+                android:id="@+id/im_article" app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent" android:layout_height="80dp"
+                android:layout_marginTop="8dp" android:layout_marginLeft="8dp" android:layout_marginStart="8dp"
+                app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="8dp"
+                app:layout_constraintVertical_bias="0.0"/>
+        <TextView
+                android:text="Author with a name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/tx_author" app:layout_constraintStart_toEndOf="@+id/im_article"
+                android:layout_marginLeft="8dp" android:layout_marginStart="8dp"
+                android:textSize="8sp"
+                app:layout_constraintTop_toBottomOf="@+id/tx_preview"
+                app:layout_constraintEnd_toStartOf="@+id/tx_datetime" android:textColor="@android:color/darker_gray"/>
+        <TextView
+                android:text="A News Website Name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/tx_source"
+                android:textSize="10sp"
+                app:layout_constraintStart_toEndOf="@+id/im_article"
+                android:layout_marginStart="8dp" android:layout_marginLeft="8dp"
+                app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp" android:textColor="@color/colorPrimary"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintHorizontal_bias="0.0" android:layout_marginTop="8dp"/>
+        <TextView
+                android:text="News articles from renowed websites lie just as much as any social media pages and you can't change my mind"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/tx_title" android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/tx_source" app:layout_constraintStart_toEndOf="@+id/im_article"
+                android:layout_marginLeft="8dp" android:layout_marginStart="8dp" android:textSize="14sp"
+                android:textColor="@color/colorAccent" app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="8dp" android:layout_marginRight="8dp" android:textStyle="bold"/>
+        <TextView
+                android:text="It's true tho. They do it, I can't prove right now, but we'll meet after school and talk about it. S-shut up, I'm right, you're wrong, F you. aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/tx_preview" app:layout_constraintStart_toEndOf="@+id/im_article"
+                android:layout_marginLeft="8dp" android:layout_marginStart="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/tx_title"
+                android:textSize="10sp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"/>
+        <TextView
+                android:text="42 minutes ago"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tx_datetime"
+                app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp" app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tx_preview"
+                android:layout_marginBottom="8dp" app:layout_constraintVertical_bias="1.0"
+                android:textSize="10sp"
+                android:textColor="@color/colorPrimary"/>
+        <Button
+                android:text="See more"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/im_article"
+                app:layout_constraintStart_toStartOf="@+id/im_article"
+                style="@style/Widget.AppCompat.Button.Colored"
+                app:layout_constraintEnd_toEndOf="@+id/im_article" android:textSize="12sp"
+                android:id="@+id/bt_more"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
