@@ -20,13 +20,13 @@
             android:id="@+id/in_terms"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/bt_search" android:hint="Termos de pesquisa"
+            app:layout_constraintEnd_toStartOf="@+id/bt_search"
             android:inputType="text"/>
-    <Button
-            android:text="Pesquisar"
+    <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/bt_search"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" style="@style/Widget.AppCompat.Button.Colored"/>
+            app:layout_constraintTop_toTopOf="parent" style="@style/Widget.AppCompat.Button.Colored"
+            android:src="@drawable/ic_search"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

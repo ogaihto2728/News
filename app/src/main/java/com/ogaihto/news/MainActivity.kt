@@ -1,5 +1,6 @@
 package com.ogaihto.news
 
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -20,6 +21,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var retrofit: Retrofit
     lateinit var service: NewsService
     lateinit var adapter: ArticleAdapter
+    lateinit var locale: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,16 +29,20 @@ class MainActivity : AppCompatActivity() {
 
         retrofit = Retrofit.Builder().baseUrl("https://newsapi.org/v2/").addConverterFactory(GsonConverterFactory.create()).build()
         service = retrofit.create(NewsService::class.java)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
+            locale = resources.configuration.locales[0].country
+        else
+            locale = resources.configuration.locale.country
 
-        doSearch()
+        doSearch("", locale)
 
         bt_search.setOnClickListener {
-            doSearch(in_terms.text.toString())
+            doSearch(in_terms.text.toString(), locale)
         }
 
     }
 
-    fun doSearch(terms: String = "", country: String = "br") {
+    fun doSearch(terms: String = "", country: String = "us") {
         service.searchNews(terms, country).enqueue(object : Callback<NewsResult> {
             override fun onResponse(call: Call<NewsResult>, response: Response<NewsResult>) {
                 val result = response.body()
