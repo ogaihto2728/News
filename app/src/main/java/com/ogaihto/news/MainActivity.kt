@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import com.ogaihto.news.entities.Article
 import com.ogaihto.news.entities.NewsResult
 import com.ogaihto.news.services.NewsService
@@ -27,7 +29,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        retrofit = Retrofit.Builder().baseUrl("https://newsapi.org/v2/").addConverterFactory(GsonConverterFactory.create()).build()
+        retrofit = Retrofit.Builder().baseUrl("https://newsapi.org/v2/").addConverterFactory(GsonConverterFactory.create(
+            GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss").create()
+        )).build()
         service = retrofit.create(NewsService::class.java)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
             locale = resources.configuration.locales[0].country

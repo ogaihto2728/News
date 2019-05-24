@@ -35,7 +35,7 @@ class ArticleAdapter(var articles: MutableList<Article>): RecyclerView.Adapter<A
             itemView.tx_source.setText(article.source.name)
             itemView.tx_title.setText(article.title)
 
-            itemView.tx_datetime.setText(article.publishedAt)
+            itemView.tx_datetime.setText(DateUtils.getRelativeTimeSpanString(article.publishedAt.time, System.currentTimeMillis(), DateUtils.DAY_IN_MILLIS))
 
             Picasso.get().load(article.urlToImage).into(itemView.im_article)
 
